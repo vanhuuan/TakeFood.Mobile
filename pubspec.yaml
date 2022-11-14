@@ -31,11 +31,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dots_indicator: ^2.1.0
+  get: ^4.1.4
+  persistent_bottom_nav_bar: ^4.0.2
+  flutter_screenutil: 5.5.4
+  http: ^0.13.5
+  shared_preferences: ^2.0.15
+  set_state: ^ 3.0.0
+  flutter_format_money_vietnam: ^0.0.2
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
