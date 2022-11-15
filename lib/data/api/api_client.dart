@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../models/user_model.dart';
 class ApiClient extends GetConnect implements GetxService {
   final String  appBaseUrl;
   Map<String, String> cookies = {};
@@ -9,8 +11,47 @@ class ApiClient extends GetConnect implements GetxService {
     baseUrl = appBaseUrl;
     timeout = Duration(seconds: 30);
   }
-
-
+  Future<http.Response>  Get(String uri) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token=prefs?.getString("token");
+    print(token);
+    http.Response response=await http.get(
+        Uri.parse(uri),
+        headers: _mainHeaders(token)
+    );
+    return response;
+  }
+  Future<http.Response> getStoreNear(data,apiUrl) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token=prefs.getString("token");
+    http.Response response= await http.post(
+      Uri.parse(apiUrl),
+      body: jsonEncode(data),
+      headers: _mainHeaders(token),
+    );
+    print(token);
+    print(response.statusCode);
+    if(response.statusCode==401){
+      var refreshToken="https://takefoodauthentication.azurewebsites.net/GetAccessToken?token=${prefs.getString("refreshToken")!}";
+      http.Response res=await http.get(
+          Uri.parse(refreshToken),
+          headers: _setHeaders()
+      );
+      if(res.statusCode==200){
+        User user=User.fromJson(jsonDecode(res.body));
+        //await prefs.remove("token");
+        await prefs.setString("token", user.accessToken!);
+      }
+      http.Response response= await http.post(
+        Uri.parse(apiUrl),
+        body: jsonEncode(data),
+        headers: _mainHeaders(prefs.getString("token")),
+      );
+      print(response.statusCode);
+      return response;
+    }
+    return response;
+  }
   Future<http.Response> SignUp(data,apiUrl) async{
     http.Response response= await http.post(
       Uri.parse(apiUrl),
