@@ -1,4 +1,5 @@
 
+import 'package:cdcn/pages/auth/sign_in_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -99,7 +100,7 @@ class SignUpPage extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                      //  recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignInPage()),
+                        recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignInPage()),
                         text: " Đăng nhập",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,

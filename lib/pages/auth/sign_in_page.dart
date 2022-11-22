@@ -6,6 +6,7 @@ import '../../controllers/user_controller.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_text_field.dart';
 import '../../widgets/big_text.dart';
+import '../home/home_page.dart';
 import 'sign_up_page.dart';
 
 class SignInPage extends StatelessWidget {
@@ -79,11 +80,11 @@ class SignInPage extends StatelessWidget {
                   onTap: () async {
                     var signup=await _login();
                     if(signup==true){
-                      //Get.to(()=>HomePage());
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => const HomePage()),
-                      // );
+                      Get.to(()=>HomePage());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const HomePage()),
+                      );
                     }else{
                       print("SAI");
                     }
