@@ -62,6 +62,8 @@ class ApiClient extends GetConnect implements GetxService {
 
   }
   Future<http.Response> SignIn(data,apiUrl) async{
+    print(data);
+    print(apiUrl);
     // SharedPreferences prefs = await SharedPreferences.getInstance();
     http.Response response= await http.post(
       Uri.parse(apiUrl),
