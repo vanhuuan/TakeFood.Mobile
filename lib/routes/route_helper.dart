@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../pages/auth/sign_in_page.dart';
+import '../pages/food/store.dart';
 import '../pages/home/home_page.dart';
 import '../pages/splash/splash_page.dart';
 
@@ -23,6 +24,9 @@ class RouteHelper{
   } , transition: Transition.rightToLeftWithFade
     ),
     GetPage(name: Splashpage, page:()=>SplashSreeen()),
-
+  GetPage(name: storeDetail, page:(){
+  var storeId=Get.parameters['storeId'];
+  return StorePage(storeId:storeId.toString());
+  }),
   ];
 }
