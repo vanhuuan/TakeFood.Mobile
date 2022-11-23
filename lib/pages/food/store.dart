@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../controllers/foodDetail_controller.dart';
 import '../../controllers/foodOfStore_controller.dart';
+import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
@@ -181,9 +183,9 @@ class StorePage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () async {
-                          // await Get.find<FoodDetailController>().getFoodDetailById(foodsStore.foodOfStoreList[index].foodId);
+                           await Get.find<FoodDetailController>().getFoodDetailById(foodsStore.foodOfStoreList[index].foodId);
                           // //print(foodsStore.foodOfStoreList[index].storeId.toString());
-                          // Get.toNamed(RouteHelper.getDetailFood(storeId));
+                          Get.toNamed(RouteHelper.getDetailFood(storeId));
                         },
                         child: Container(
                           margin: EdgeInsets.only(
