@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../pages/auth/sign_in_page.dart';
+import '../pages/food/foodDetail.dart';
 import '../pages/food/store.dart';
 import '../pages/home/home_page.dart';
 import '../pages/splash/splash_page.dart';
@@ -12,11 +13,13 @@ class RouteHelper{
   static const String homepage="/home_page";
   static const String storeDetail="/store_detail";
   static const String Splashpage="/splash_page";
+  static const String foodDetail="/food_detail";
 
   static String getInitial()=>'$initial';
   static String getHomePage()=>'$homepage';
   static String getStoreDetail(String storeId)=>'$storeDetail?storeId=$storeId';
   static String getSplashPage()=>'$Splashpage';
+  static String getDetailFood(String storeID)=>'$foodDetail?storeID=$storeID';
   static List<GetPage> routes=[
     GetPage(name: initial, page: ()=>SignInPage()),
     GetPage(name: homepage, page:(){
@@ -28,5 +31,10 @@ class RouteHelper{
   var storeId=Get.parameters['storeId'];
   return StorePage(storeId:storeId.toString());
   }),
+    GetPage(name: foodDetail, page: (){
+      var storeID=Get.parameters['storeID'];
+      return FoodDetail(storeID:storeID.toString());
+    },transition: Transition.rightToLeftWithFade,
+    ),
   ];
 }
