@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../controllers/cart_controller.dart';
 import '../controllers/foodDetail_controller.dart';
 import '../controllers/foodOfStore_controller.dart';
 import '../controllers/recommended_storenear_controller.dart';
 import '../controllers/user_controller.dart';
 import '../data/api/api_client.dart';
+import '../data/repository/cart_repo.dart';
 import '../data/repository/foodDetail_repo.dart';
 import '../data/repository/foodOfStore_repo.dart';
 import '../data/repository/recommended_storenear_repo.dart';
@@ -32,5 +34,7 @@ Future<void> init() async {
     return FoodDetailController(foodDetailRepo: Get.find(),sharedPreferences: Get.find());
   },
       fenix: true);
-
+  Get.lazyPut(() => CartRepo(sharedPreferences: Get.find()));
+  //controllers
+  Get.lazyPut(() => CartController(cartRepo: Get.find()));
 }
