@@ -1,6 +1,6 @@
 # cdcn
 
-A new Flutter project.
+A new CDCNTT project.
 
 ## Getting Started
 
