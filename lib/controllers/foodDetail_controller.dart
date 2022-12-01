@@ -27,18 +27,20 @@ class FoodDetailController extends GetxController {
   int get inCartItems => _inCartItems+_quantity;
   late List<ListTopping> _listTopping;
   List<ListTopping> get listTopping=>_listTopping;
-  int? totalMoney=0;
   late CartController _cart;
+  int? totalMoney=0;
 
 
   Future<bool> getFoodDetailById(id) async {
     http.Response response = (await foodDetailRepo.getFoodDetail(id));
     if (response.statusCode == 200) {
+
       _foodsDetail = null;
       _foodsDetail = FoodTopping.fromJson(jsonDecode(response.body));
       _toppingFood = [];
       _toppingFood.addAll(FoodTopping.fromJson(jsonDecode(response.body)).listTopping);
       _isLoaded = true;
+      initFood(_foodsDetail, Get.find<CartController>());
       update();
       // return _foodsDetail;
       return true;
