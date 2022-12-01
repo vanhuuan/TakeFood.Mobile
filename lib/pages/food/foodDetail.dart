@@ -79,9 +79,9 @@ class _FoodDetailState extends State<FoodDetail> {
                             children: [
                               GestureDetector(
                                 onTap:(){
-                                  // if(foodDetail.totalItems>=1){
-                                  //   Get.toNamed(RouteHelper.getCartPage(storeId));
-                                  // }
+                                  if(foodDetail.totalItems>=1){
+                                    Get.toNamed(RouteHelper.getCartPage(storeId));
+                                  }
                                 },
                                 child: AppIcon(
                                   iconColor: Colors.black54,
@@ -90,21 +90,19 @@ class _FoodDetailState extends State<FoodDetail> {
                                   iconSize:ScreenUtil().setHeight(25) ,
                                   backgroundColor: AppColors.mainColor,),
                               ),
-                              // Get.find<FoodDetailController>().totalItems >= 1
-                              //     ? Positioned(
-                              //   right: 3,
-                              //   top: 3,
-                              //   child: BigText(
-                              //     text: Get.find<FoodDetailController>()
-                              //         .totalItems
-                              //         .toString(),
-                              //     size: ScreenUtil().setSp(5),
-                              //     color: Colors.red,
-                              //   ),
-                              // )
-                              //     :
-                              //  Container()
-                              Container()
+                              Get.find<FoodDetailController>().totalItems >= 1
+                                  ? Positioned(
+                                right: 3,
+                                top: 3,
+                                child: BigText(
+                                  text: Get.find<FoodDetailController>()
+                                      .totalItems
+                                      .toString(),
+                                  size: ScreenUtil().setSp(5),
+                                  color: Colors.red,
+                                ),
+                              )
+                                  : Container()
                             ],
                           );
                         })
@@ -182,13 +180,6 @@ class _FoodDetailState extends State<FoodDetail> {
                                           shrinkWrap: true,
                                           itemCount: topping.toppingFood.isEmpty?1:topping.toppingFood.length,
                                           itemBuilder: (context, index) {
-                                            // var _isSelectedBefore=topping.listTopping.contains(topping.toppingFood[index].iD);
-                                            //  if(_isSelectedBefore ){
-                                            //    if(!listtopping.contains(topping.toppingFood[index])){
-                                            //      _selectedIndexs.add(index);
-                                            //    }
-                                            //    listtopping.add(topping.toppingFood[index]);
-                                            //  }
                                             var _isSelected=_selectedIndexs.contains(index);
 
                                             return Container(
@@ -227,7 +218,7 @@ class _FoodDetailState extends State<FoodDetail> {
                                                           children: [
                                                             Row(
                                                               children: [
-                                                                _isSelected?AppIcon(icon: Icons.check_outlined,iconColor: AppColors.mainColor,size: ScreenUtil().setWidth(20),):Container(),
+                                                                _isSelected?AppIcon(icon: Icons.check_outlined,iconColor: Colors.white70,size: ScreenUtil().setWidth(20),backgroundColor: AppColors.mainColor,):Container(),
                                                                 BigText(text: topping.toppingFood[index].name!,size: ScreenUtil().setSp(10),),
                                                               ],
                                                             ),
@@ -324,7 +315,7 @@ class _FoodDetailState extends State<FoodDetail> {
                     child: GestureDetector(
                       onTap: () {
                         foodDetail.addItem(foodDetail.foodsDetail,storeId);
-                        // Get.toNamed(RouteHelper.cartPage);
+                        Get.toNamed(RouteHelper.cartPage);
                       },
                       child: BigText(
                         text: "Thêm  ${(foodDetail.foodsDetail.price*foodDetail.quantity+foodDetail.totalMoney).toString().toVND(unit: 'đ')}",

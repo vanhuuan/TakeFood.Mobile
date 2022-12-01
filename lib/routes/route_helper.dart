@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../pages/auth/sign_in_page.dart';
+import '../pages/cart/cart_page.dart';
 import '../pages/food/foodDetail.dart';
 import '../pages/food/store.dart';
 import '../pages/home/home_page.dart';
@@ -14,12 +15,13 @@ class RouteHelper{
   static const String storeDetail="/store_detail";
   static const String Splashpage="/splash_page";
   static const String foodDetail="/food_detail";
-
+  static const String cartPage="/cart_page";
   static String getInitial()=>'$initial';
   static String getHomePage()=>'$homepage';
   static String getStoreDetail(String storeId)=>'$storeDetail?storeId=$storeId';
   static String getSplashPage()=>'$Splashpage';
   static String getDetailFood(String storeID)=>'$foodDetail?storeID=$storeID';
+  static String getCartPage(String FoodID)=>'$cartPage';
   static List<GetPage> routes=[
     GetPage(name: initial, page: ()=>SignInPage()),
     GetPage(name: homepage, page:(){
@@ -36,5 +38,8 @@ class RouteHelper{
       return FoodDetail(storeID:storeID.toString());
     },transition: Transition.rightToLeftWithFade,
     ),
+    GetPage(name: cartPage, page: (){
+      return CartPage();
+    },transition: Transition.rightToLeftWithFade),
   ];
 }

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'controllers/cart_controller.dart';
 import 'controllers/recommended_storenear_controller.dart';
 import 'helper/dependencies.dart' as dep;
 Future<void> main() async {
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       "radiusOut": 1
     };
     Get.find<RecommendedStoreNearController>().getRecommendedStoreNearList(data);
+    Get.find<CartController>().getCartData();
     return ScreenUtilInit(
       designSize: const Size(410, 730),
       minTextAdapt: true,
