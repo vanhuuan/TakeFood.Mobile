@@ -321,7 +321,7 @@ class _FoodDetailState extends State<FoodDetail> {
                         color: AppColors.mainColor),
                     child: GestureDetector(
                       onTap: () {
-                        // foodDetail.addItem(foodDetail.foodsDetail,storeId);
+                        foodDetail.addItem(foodDetail.foodsDetail,storeId);
                         // Get.toNamed(RouteHelper.cartPage);
                       },
                       child: BigText(

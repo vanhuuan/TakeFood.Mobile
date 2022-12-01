@@ -6,8 +6,10 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/repository/foodDetail_repo.dart';
+import '../models/cart_model.dart';
 import '../models/food_model.dart';
 import '../utils/colors.dart';
+import 'cart_controller.dart';
 
 class FoodDetailController extends GetxController {
   final FoodDetailRepo foodDetailRepo;
@@ -26,6 +28,7 @@ class FoodDetailController extends GetxController {
   late List<ListTopping> _listTopping;
   List<ListTopping> get listTopping=>_listTopping;
   int? totalMoney=0;
+  late CartController _cart;
 
 
   Future<bool> getFoodDetailById(id) async {
@@ -64,46 +67,46 @@ class FoodDetailController extends GetxController {
     return quantity;
   }
 
-  // void initFood(FoodTopping food, CartController cart) {
-  //   _quantity = 1;
-  //   _inCartItems = 0;
-  //   _listTopping=[];
-  //   _cart = cart;
-  //   totalMoney=0;
-  //   var exist = false;
-  //   exist = _cart.existInCart(food);
-  //   if(exist){
-  //     _inCartItems=_cart.getQuantity(food);
-  //   }
-  // }
+  void initFood(FoodTopping food, CartController cart) {
+    _quantity = 1;
+    _inCartItems = 0;
+    _listTopping=[];
+    _cart = cart;
+    totalMoney=0;
+    var exist = false;
+    exist = _cart.existInCart(food);
+    if(exist){
+      _inCartItems=_cart.getQuantity(food);
+    }
+  }
 
-  // void addItem(FoodTopping food, String storeID) {
-  //   if (quantity > 0) {
-  //     if(checkStore(storeID)){
-  //       _cart.addItem(food, _quantity,listTopping,storeID);
-  //     }
-  //     _quantity = 1;
-  //     _inCartItems=_cart.getQuantity(food);
-  //   } else {
-  //     Get.snackbar("Không hợp lệ", "Bạn chưa chọn số lượng",
-  //         backgroundColor: AppColors.mainColor, colorText: Colors.white);
-  //   }
-  //   update();
-  // }
-  // bool checkStore(storeID){
-  //   if(getItems.isEmpty){
-  //     return true;
-  //   }
-  //   if(getItems[0].storeID==storeID){
-  //     return true;
-  //   }
-  //   Get.snackbar("Không hợp lệ", "Vui lòng thanh toán đơn hàng hiện tại",
-  //       backgroundColor: AppColors.mainColor, colorText: Colors.white);
-  //   return false;
-  // }
-  // int get totalItems{
-  //   return _cart.totalItems;
-  // }
+  void addItem(FoodTopping food, String storeID) {
+    if (quantity > 0) {
+      if(checkStore(storeID)){
+        _cart.addItem(food, _quantity,listTopping,storeID);
+      }
+      _quantity = 1;
+      _inCartItems=_cart.getQuantity(food);
+    } else {
+      Get.snackbar("Không hợp lệ", "Bạn chưa chọn số lượng",
+          backgroundColor: AppColors.mainColor, colorText: Colors.white);
+    }
+    update();
+  }
+  bool checkStore(storeID){
+    if(getItems.isEmpty){
+      return true;
+    }
+    if(getItems[0].storeID==storeID){
+      return true;
+    }
+    Get.snackbar("Không hợp lệ", "Vui lòng thanh toán đơn hàng hiện tại",
+        backgroundColor: AppColors.mainColor, colorText: Colors.white);
+    return false;
+  }
+  int get totalItems{
+    return _cart.totalItems;
+  }
   var check=false;
   void addTopping(isSelected, toppingID){
     if(isSelected){
@@ -115,7 +118,7 @@ class FoodDetailController extends GetxController {
     }
     update();
   }
-  // List<CartModel> get getItems{
-  //   return _cart.getItems;
-  // }
+  List<CartModel> get getItems{
+    return _cart.getItems;
+  }
 }
