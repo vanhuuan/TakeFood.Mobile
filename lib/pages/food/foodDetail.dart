@@ -233,8 +233,6 @@ class _FoodDetailState extends State<FoodDetail> {
                                                             ),
                                                             BigText(text: topping.toppingFood[index].price.toString().toVND(unit: 'đ'),size: ScreenUtil().setSp(10),),
                                                           ],
-
-
                                                         ),
 
                                                       ),
