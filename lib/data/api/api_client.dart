@@ -101,4 +101,17 @@ class ApiClient extends GetConnect implements GetxService {
     }
     return _response;
   }
+  Future<bool> LogOut() async {
+    try{
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.remove("token");
+      await prefs.remove("user");
+      await prefs.remove("address");
+      await prefs.remove("nameUser");
+      return true;
+    }
+    catch(e){
+      return false;
+    }
+  }
 }
