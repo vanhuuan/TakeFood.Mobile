@@ -4,6 +4,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../pages/auth/sign_in_page.dart';
 import '../pages/cart/cart_page.dart';
+import '../pages/cart/payment_page.dart';
 import '../pages/food/foodDetail.dart';
 import '../pages/food/store.dart';
 import '../pages/home/home_page.dart';
@@ -20,6 +21,10 @@ class RouteHelper{
   static const String cartPage="/cart_page";
   static const String editProfile="/editProfile_page";
   static const String profile='/profile_page';
+  static const String paymentPage="/payment_page";
+  static const String voucherPage="/voucher_page";
+  static const String myOrderPage="/myorder_page";
+  static const String detailOrdered="/detailOrdered_page";
   static String getInitial()=>'$initial';
   static String getHomePage()=>'$homepage';
   static String getStoreDetail(String storeId)=>'$storeDetail?storeId=$storeId';
@@ -28,6 +33,10 @@ class RouteHelper{
   static String getCartPage(String FoodID)=>'$cartPage';
   static String getEditProfile()=>'$editProfile';
   static String getProfileUser()=>'$profile';
+  static String getPaymentPage()=>'$paymentPage';
+  static String getVoucherPage()=>'$voucherPage';
+  static String getMyOrderPage()=>'$myOrderPage';
+  static String getDetailOrdered()=>'$detailOrdered';
   static List<GetPage> routes=[
     GetPage(name: initial, page: ()=>SignInPage()),
     GetPage(name: homepage, page:(){
@@ -53,5 +62,17 @@ class RouteHelper{
     GetPage(name: profile, page: (){
       return ProfileUser();
     },transition: Transition.rightToLeftWithFade),
+    GetPage(name: paymentPage, page: (){
+      return PaymentPage();
+    },transition: Transition.rightToLeftWithFade),
+    // GetPage(name: voucherPage, page: (){
+    //   return VoucherPage();
+    // },transition: Transition.rightToLeftWithFade),
+    // GetPage(name: myOrderPage, page: (){
+    //   return MyOrderPage();
+    // },transition: Transition.rightToLeftWithFade),
+    // GetPage(name: detailOrdered, page: (){
+    //   return DetailOrderPage();
+    // },transition: Transition.rightToLeftWithFade),
   ];
 }

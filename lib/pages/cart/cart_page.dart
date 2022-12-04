@@ -243,7 +243,7 @@ class CartPage extends StatelessWidget {
                         color: AppColors.mainColor),
                     child:  GestureDetector(
                         onTap: (){
-                          //Get.toNamed(RouteHelper.paymentPage);
+                          Get.toNamed(RouteHelper.paymentPage);
                         },
                         child: BigText(
                           text: "Thanh toán",

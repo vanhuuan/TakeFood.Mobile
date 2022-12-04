@@ -1,4 +1,5 @@
 
+import 'package:cdcn/pages/cart/cart_page.dart';
 import 'package:cdcn/pages/profile/profile_user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     return [
       MainFoodPage(),
       Container(),
-      Container(),
+      CartPage(),
       ProfileUser(),
 
     ];
