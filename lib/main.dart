@@ -5,13 +5,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'controllers/cart_controller.dart';
 import 'controllers/recommended_storenear_controller.dart';
+import 'controllers/user_controller.dart';
 import 'helper/dependencies.dart' as dep;
 Future<void> main() async {
   await ScreenUtil.ensureScreenSize();
   WidgetsFlutterBinding.ensureInitialized();
   await dep.init();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? token= prefs.getString("token");
+  if(token!=null){
+    await Get.find<UserController>().getUser();
+    };
   runApp(const MyApp());
 }
 

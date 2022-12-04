@@ -7,6 +7,8 @@ import '../pages/cart/cart_page.dart';
 import '../pages/food/foodDetail.dart';
 import '../pages/food/store.dart';
 import '../pages/home/home_page.dart';
+import '../pages/profile/edit_profile.dart';
+import '../pages/profile/profile_user.dart';
 import '../pages/splash/splash_page.dart';
 
 class RouteHelper{
@@ -16,12 +18,16 @@ class RouteHelper{
   static const String Splashpage="/splash_page";
   static const String foodDetail="/food_detail";
   static const String cartPage="/cart_page";
+  static const String editProfile="/editProfile_page";
+  static const String profile='/profile_page';
   static String getInitial()=>'$initial';
   static String getHomePage()=>'$homepage';
   static String getStoreDetail(String storeId)=>'$storeDetail?storeId=$storeId';
   static String getSplashPage()=>'$Splashpage';
   static String getDetailFood(String storeID)=>'$foodDetail?storeID=$storeID';
   static String getCartPage(String FoodID)=>'$cartPage';
+  static String getEditProfile()=>'$editProfile';
+  static String getProfileUser()=>'$profile';
   static List<GetPage> routes=[
     GetPage(name: initial, page: ()=>SignInPage()),
     GetPage(name: homepage, page:(){
@@ -40,6 +46,12 @@ class RouteHelper{
     ),
     GetPage(name: cartPage, page: (){
       return CartPage();
+    },transition: Transition.rightToLeftWithFade),
+    GetPage(name: editProfile, page: (){
+      return EditProfile();
+    },transition: Transition.rightToLeftWithFade),
+    GetPage(name: profile, page: (){
+      return ProfileUser();
     },transition: Transition.rightToLeftWithFade),
   ];
 }
