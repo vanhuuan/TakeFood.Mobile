@@ -41,15 +41,15 @@ class UserRepo extends GetxService{
     }
     return user;
   }
-//   Future<bool> editProfile(data, address) async {
-//     var fullApiUrlUpdateInfo ="${apiClient.appBaseUrl}UpdateInfo";
-//     var fullApiUrlAddress ="${apiClient.appBaseUrl}AddAddress";
-//     // http.Response response=await apiClient.PutData(fullApiUrlUpdateInfo, data);
-//     // http.Response res=await apiClient.postOrder(fullApiUrlAddress, address);
-//     if(response.statusCode==200 && res.statusCode==200){
-//       return true;
-//     }else{
-//       return false;
-//     }
-//   }
+  Future<bool> editProfile(data, address) async {
+    var fullApiUrlUpdateInfo ="${apiClient.appBaseUrl}UpdateInfo";
+    var fullApiUrlAddress ="${apiClient.appBaseUrl}AddAddress";
+    http.Response response=await apiClient.PutData(fullApiUrlUpdateInfo, data);
+    http.Response res=await apiClient.postOrder(fullApiUrlAddress, address);
+    if(response.statusCode==200 && res.statusCode==200){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

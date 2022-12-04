@@ -12,7 +12,7 @@ class RecommendedStoreNearRepo extends GetxService{
   //   return await apiClient.getData(fullApiUrl);
   // }
   Future<http.Response> getRecommendedStoreNearList(data) async{
-    var fullApiUrl="https://takefoodstoreservice.azurewebsites.net/GetNearBy";
+    var fullApiUrl="${apiClient.appBaseUrl}GetNearBy";
     return await apiClient.getStoreNear(data,fullApiUrl);
   }
 

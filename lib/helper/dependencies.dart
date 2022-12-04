@@ -14,7 +14,7 @@ import '../data/repository/recommended_storenear_repo.dart';
 import '../data/repository/user_repo.dart';
 Future<void> init() async {
   final sharePreferences=await SharedPreferences.getInstance();
-  //await sharePreferences.remove("Cart-list");
+  //await sharePreferences.remove("token");
   Get.lazyPut(()=>sharePreferences);
   //api client
   Get.lazyPut(() =>ApiClient(appBaseUrl: "https://takefoodauthentication.azurewebsites.net/"));
