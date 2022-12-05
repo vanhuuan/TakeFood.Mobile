@@ -1,5 +1,6 @@
 
 import 'package:cdcn/pages/cart/voucher_page.dart';
+import 'package:cdcn/pages/profile/infoUser_Order.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -26,6 +27,7 @@ class RouteHelper{
   static const String voucherPage="/voucher_page";
   static const String myOrderPage="/myorder_page";
   static const String detailOrdered="/detailOrdered_page";
+  static const String infoUserOrder='/infoUserOrder_page';
   static String getInitial()=>'$initial';
   static String getHomePage()=>'$homepage';
   static String getStoreDetail(String storeId)=>'$storeDetail?storeId=$storeId';
@@ -38,6 +40,7 @@ class RouteHelper{
   static String getVoucherPage()=>'$voucherPage';
   static String getMyOrderPage()=>'$myOrderPage';
   static String getDetailOrdered()=>'$detailOrdered';
+  static String getInfoUserOrder()=>'$infoUserOrder';
   static List<GetPage> routes=[
     GetPage(name: initial, page: ()=>SignInPage()),
     GetPage(name: homepage, page:(){
@@ -68,6 +71,9 @@ class RouteHelper{
     },transition: Transition.rightToLeftWithFade),
     GetPage(name: voucherPage, page: (){
       return VoucherPage();
+    },transition: Transition.rightToLeftWithFade),
+    GetPage(name: infoUserOrder, page: (){
+      return InfoUserOrder();
     },transition: Transition.rightToLeftWithFade),
     // GetPage(name: myOrderPage, page: (){
     //   return MyOrderPage();
