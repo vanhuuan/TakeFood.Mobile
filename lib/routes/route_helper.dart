@@ -1,4 +1,5 @@
 
+import 'package:cdcn/pages/auth/myordered_page.dart';
 import 'package:cdcn/pages/cart/voucher_page.dart';
 import 'package:cdcn/pages/profile/infoUser_Order.dart';
 import 'package:get/get.dart';
@@ -75,9 +76,9 @@ class RouteHelper{
     GetPage(name: infoUserOrder, page: (){
       return InfoUserOrder();
     },transition: Transition.rightToLeftWithFade),
-    // GetPage(name: myOrderPage, page: (){
-    //   return MyOrderPage();
-    // },transition: Transition.rightToLeftWithFade),
+    GetPage(name: myOrderPage, page: (){
+      return MyOrderPage();
+    },transition: Transition.rightToLeftWithFade),
     // GetPage(name: detailOrdered, page: (){
     //   return DetailOrderPage();
     // },transition: Transition.rightToLeftWithFade),
