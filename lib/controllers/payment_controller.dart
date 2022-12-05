@@ -1,14 +1,13 @@
 import 'dart:convert';
+import 'package:cdcn/controllers/cart_controller.dart';
+import 'package:cdcn/data/repository/payment_repo.dart';
+import 'package:cdcn/models/voucher_model.dart';
+import 'package:cdcn/routes/route_helper.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../data/repository/payment_repo.dart';
 import '../models/user_model.dart';
-import '../models/voucher_model.dart';
-import '../routes/route_helper.dart';
-import 'cart_controller.dart';
 import 'myOrdered_controller.dart';
-
 
 class PaymentController extends GetxController{
   final PaymentRepo paymentRepo;
@@ -23,7 +22,7 @@ class PaymentController extends GetxController{
   String phoneNumberUser="";
   late User user;
   PaymentController({required this.paymentRepo,required this.cartController})  {
-     initUser();
+    initUser();
   }
   Future<bool> getVoucher(id) async {
     http.Response response = (await paymentRepo.getVoucher(id));
@@ -56,7 +55,7 @@ class PaymentController extends GetxController{
   }
   checkVoucher(VoucherStore voucher){
     int amount=cartController.totalAmount;
-     amountDiscount=0;
+    amountDiscount=0;
     if(amount>=voucher.minSpend!){
       double discount=(amount*voucher.amount!/100);
       amountDiscount=discount.floor();
@@ -90,10 +89,10 @@ class PaymentController extends GetxController{
   }
   editInfoUser(data){
     try{
-    addressUser=data["address"];
-    phoneNumberUser=data["phoneNumber"];
-    update();
-    return true;
+      addressUser=data["address"];
+      phoneNumberUser=data["phoneNumber"];
+      update();
+      return true;
     }catch(e){
       return false;
     }
