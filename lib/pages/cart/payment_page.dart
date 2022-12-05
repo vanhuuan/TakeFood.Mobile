@@ -62,8 +62,8 @@ class _PaymentPageState extends State<PaymentPage> {
                             onTap: () {},
                             child: GestureDetector(
                               onTap: () async {
-                                // final result=await Get.toNamed(RouteHelper.infoUserOrder);
-                                // infoUser.editInfoUser(result);
+                                final result=await Get.toNamed(RouteHelper.infoUserOrder);
+                                infoUser.editInfoUser(result);
                               },
                               child: SmallText(
                                   text: "Thay đổi",
