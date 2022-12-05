@@ -1,4 +1,5 @@
 
+import 'package:cdcn/pages/cart/voucher_page.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -65,9 +66,9 @@ class RouteHelper{
     GetPage(name: paymentPage, page: (){
       return PaymentPage();
     },transition: Transition.rightToLeftWithFade),
-    // GetPage(name: voucherPage, page: (){
-    //   return VoucherPage();
-    // },transition: Transition.rightToLeftWithFade),
+    GetPage(name: voucherPage, page: (){
+      return VoucherPage();
+    },transition: Transition.rightToLeftWithFade),
     // GetPage(name: myOrderPage, page: (){
     //   return MyOrderPage();
     // },transition: Transition.rightToLeftWithFade),
