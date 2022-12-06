@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cdcn/models/review_model.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -31,26 +32,26 @@ class MyOrderedRepo extends GetxService{
       http.Response response=await apiClient.Get(fullApiUrl);
       return response;
     }
-    // Future<Review?> getReviewByOrderId(orderId) async {
-    // var fullApiUrl="${apiClient.appBaseUrl}GetReview?orderId="+orderId;
-    // http.Response response=await apiClient.Get(fullApiUrl);
-    // if(response.statusCode==200){
-    //   Review review=Review.fromJson(jsonDecode(response.body));
-    //   return review;
-    // }
-    // return null;
-    // }
-    // Future<bool> revieworder(data) async {
-    //    print(jsonEncode(data));
-    //   var fullApiUrl ="${apiClient.appBaseUrl}CreateReview";
-    //   http.Response response=await apiClient.postOrder(fullApiUrl, data);
-    //   print(response.statusCode);
-    //   if(response.statusCode==200){
-    //     return true;
-    //   }else{
-    //     return false;
-    //   }
-    // }
+    Future<Review?> getReviewByOrderId(orderId) async {
+    var fullApiUrl="${apiClient.appBaseUrl}GetReview?orderId="+orderId;
+    http.Response response=await apiClient.Get(fullApiUrl);
+    if(response.statusCode==200){
+      Review review=Review.fromJson(jsonDecode(response.body));
+      return review;
+    }
+    return null;
+    }
+    Future<bool> revieworder(data) async {
+       print(jsonEncode(data));
+      var fullApiUrl ="${apiClient.appBaseUrl}CreateReview";
+      http.Response response=await apiClient.postOrder(fullApiUrl, data);
+      print(response.statusCode);
+      if(response.statusCode==200){
+        return true;
+      }else{
+        return false;
+      }
+    }
 
   }
 
