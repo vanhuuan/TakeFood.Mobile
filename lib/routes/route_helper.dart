@@ -1,6 +1,8 @@
 
+import 'package:cdcn/pages/auth/DetailOrdered_page.dart';
 import 'package:cdcn/pages/auth/myordered_page.dart';
 import 'package:cdcn/pages/cart/voucher_page.dart';
+import 'package:cdcn/pages/food/comment_store.dart';
 import 'package:cdcn/pages/profile/infoUser_Order.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -29,6 +31,7 @@ class RouteHelper{
   static const String myOrderPage="/myorder_page";
   static const String detailOrdered="/detailOrdered_page";
   static const String infoUserOrder='/infoUserOrder_page';
+  static const String reviewPage='/review_page';
   static String getInitial()=>'$initial';
   static String getHomePage()=>'$homepage';
   static String getStoreDetail(String storeId)=>'$storeDetail?storeId=$storeId';
@@ -42,6 +45,7 @@ class RouteHelper{
   static String getMyOrderPage()=>'$myOrderPage';
   static String getDetailOrdered()=>'$detailOrdered';
   static String getInfoUserOrder()=>'$infoUserOrder';
+  static String getReviewPage()=>'$reviewPage';
   static List<GetPage> routes=[
     GetPage(name: initial, page: ()=>SignInPage()),
     GetPage(name: homepage, page:(){
@@ -79,8 +83,11 @@ class RouteHelper{
     GetPage(name: myOrderPage, page: (){
       return MyOrderPage();
     },transition: Transition.rightToLeftWithFade),
-    // GetPage(name: detailOrdered, page: (){
-    //   return DetailOrderPage();
-    // },transition: Transition.rightToLeftWithFade),
+    GetPage(name: detailOrdered, page: (){
+      return DetailOrderPage();
+    },transition: Transition.rightToLeftWithFade),
+    GetPage(name: reviewPage, page: (){
+      return CommentStore();
+    },transition: Transition.rightToLeftWithFade),
   ];
 }

@@ -162,10 +162,16 @@ class StorePage extends StatelessWidget {
                       icon: Icons.shopping_bag,
                       text: "${foodsStore.foodsStore.numOfOrder.toString()!} đã bán",
                       iconColor: const Color(0xFFFF8357)),
-                  SmallText(
-                    text: "Xem đánh giá",
-                    color: const Color(0xFF89D5C9),
-                    size: ScreenUtil().setSp(8),
+                  GestureDetector(
+                    onTap: (){
+                      foodsStore.getAllComment(foodsStore.foodsStore.storeId);
+                      Get.toNamed(RouteHelper.reviewPage);
+                    },
+                    child: SmallText(
+                      text: "Xem đánh giá",
+                      color: const Color(0xFF89D5C9),
+                      size: ScreenUtil().setSp(8),
+                    ),
                   )
                 ],
               ),
