@@ -98,6 +98,7 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             SizedBox(height:  ScreenUtil().setHeight(50)),
+
             RichText(
                 text: TextSpan(
                     text: "Chưa có tài khoản? ",
@@ -113,7 +114,15 @@ class SignInPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                         color: AppColors.mainBlackColor,
                         fontSize: ScreenUtil().setSp(25)
-                    ),)
+                    ),),
+                    TextSpan(
+                      recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage()),
+                      text: " Quên mật khẩu",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.mainBlackColor,
+                          fontSize: ScreenUtil().setSp(25)
+                      ),)
                   ]
                 )),
 

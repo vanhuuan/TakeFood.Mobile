@@ -36,6 +36,8 @@ class MyApp extends StatelessWidget {
       "radiusIn": 0,
       "radiusOut": 1
     };
+
+
     Get.find<RecommendedStoreNearController>().getRecommendedStoreNearList(data);
     Get.find<CartController>().getCartData();
     return ScreenUtilInit(
