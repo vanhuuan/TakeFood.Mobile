@@ -145,7 +145,7 @@ packages:
     dependency: "direct main"
     description: flutter
     source: sdk
-    version: "2.5.0"
+    version: "0.0.0"
   flutter_format_money_vietnam:
     dependency: "direct main"
     description:
