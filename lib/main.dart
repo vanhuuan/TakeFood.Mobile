@@ -1,5 +1,6 @@
 import 'package:cdcn/pages/auth/sign_up_page.dart';
 import 'package:cdcn/routes/route_helper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ import 'helper/dependencies.dart' as dep;
 Future<void> main() async {
   await ScreenUtil.ensureScreenSize();
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await dep.init();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String? token= prefs.getString("token");

@@ -442,6 +442,7 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
                                           allowHalfRating: false,
                                           itemCount: 5,
                                           itemSize: 30,
+                                          ignoreGestures: true,
                                           itemPadding: EdgeInsets.symmetric(
                                               horizontal: 4.0),
                                           itemBuilder: (context, _) =>
