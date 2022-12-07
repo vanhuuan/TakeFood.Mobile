@@ -5,7 +5,6 @@ import 'package:cdcn/widgets/big_text.dart';
 import 'package:cdcn/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -276,7 +275,7 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
                                             SmallText(
                                               text: ordered
                                                   .listFood[index].total
-                                                  .toVND(unit: "đ"),
+                                                  .toString(),
                                               fontWeight: "bold",
                                               color: Colors.black,
                                             )
@@ -336,7 +335,7 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
                                                               .listFood[index]
                                                               .toppings![INDEX]
                                                               .total
-                                                              .toVND(unit: "đ"),
+                                                              .toString(),
                                                           color: Colors.black,
                                                           size: ScreenUtil()
                                                               .setSp(8))
@@ -380,7 +379,7 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
                                             ),
                                             SmallText(
                                                 text:
-                                                    "-${ordered.detailOrdered.discount.toString().toVND(unit: "đ")}",
+                                                    "-${ordered.detailOrdered.discount.toString()}",
                                                 color:
                                                     AppColors.mainBlackColor),
                                           ],
@@ -396,7 +395,7 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
                                       SmallText(
                                           text: ordered.detailOrdered.total
                                               .toString()
-                                              .toVND(unit: "đ"),
+                                              ,
                                           color: Colors.redAccent),
                                     ],
                                   ),

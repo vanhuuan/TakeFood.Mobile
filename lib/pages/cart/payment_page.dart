@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -171,7 +171,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                                 .getTotalMoneyItems(cartStorage
                                                 .getItems[index].foodId!)
                                                 .toString()
-                                                .toVND(unit: "đ"),
+                                                ,
                                             fontWeight: "bold",
                                             color: Colors.black,
                                           )
@@ -246,7 +246,7 @@ class _PaymentPageState extends State<PaymentPage> {
                               color: Colors.black,
                               fontWeight: "bold"),
                           SmallText(
-                              text: totalItem.totalAmount.toVND(unit: "đ"),
+                              text: totalItem.totalAmount.toString(),
                               color: Colors.black,
                               fontWeight: "bold"),
                         ],
@@ -279,7 +279,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                   ? SmallText(text: "Chọn tại đây >>>")
                                   : SmallText(
                                       text:
-                                          "-${discount.amountDiscount.toString().toVND(unit: "đ")}",
+                                          "-${discount.amountDiscount.toString()}",
                                       color: Colors.black,
                                     );
                             })
@@ -349,7 +349,7 @@ class _PaymentPageState extends State<PaymentPage> {
                           width: ScreenUtil().setWidth(10),
                         ),
                         BigText(
-                          text: payment.getTotal().toString().toVND(unit: "đ"),
+                          text: payment.getTotal().toString(),
                           color: Colors.redAccent,
                         ),
                         SizedBox(

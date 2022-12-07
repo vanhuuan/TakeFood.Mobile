@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -119,7 +118,7 @@ class CartPage extends StatelessWidget {
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          BigText(text:cartController.getTotalMoneyItems(cartController.getItems[index].foodId!).toVND(unit:'đ') , color: Colors.redAccent,),
+                                          BigText(text:cartController.getTotalMoneyItems(cartController.getItems[index].foodId!).toString() , color: Colors.redAccent,),
                                           Row(
                                             children: [
                                               Container(
@@ -224,7 +223,7 @@ class CartPage extends StatelessWidget {
                         SizedBox(
                           width: ScreenUtil().setWidth(10),
                         ),
-                        BigText(text:cart.totalAmount.toString().toVND(unit: "đ"),color: Colors.redAccent,),
+                        BigText(text:cart.totalAmount.toString(),color: Colors.redAccent,),
                         SizedBox(
                           width: ScreenUtil().setWidth(10),
                         ),

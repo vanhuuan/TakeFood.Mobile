@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../controllers/foodDetail_controller.dart';
@@ -140,7 +139,7 @@ class _FoodDetailState extends State<FoodDetail> {
                                   maxLines: 2,
                                 ),
                                 BigText(
-                                  text: foodDetail.foodsDetail.price.toString().toVND(unit: 'đ'),
+                                  text: foodDetail.foodsDetail.price.toString(),
                                   size: ScreenUtil().setSp(12),
                                 ),
                               ],
@@ -222,7 +221,7 @@ class _FoodDetailState extends State<FoodDetail> {
                                                                 BigText(text: topping.toppingFood[index].name!,size: ScreenUtil().setSp(10),),
                                                               ],
                                                             ),
-                                                            BigText(text: topping.toppingFood[index].price.toString().toVND(unit: 'đ'),size: ScreenUtil().setSp(10),),
+                                                            BigText(text: topping.toppingFood[index].price.toString(),size: ScreenUtil().setSp(10),),
                                                           ],
 
 
@@ -318,7 +317,7 @@ class _FoodDetailState extends State<FoodDetail> {
                         Get.toNamed(RouteHelper.cartPage);
                       },
                       child: BigText(
-                        text: "Thêm  ${(foodDetail.foodsDetail.price*foodDetail.quantity+foodDetail.totalMoney).toString().toVND(unit: 'đ')}",
+                        text: "Thêm  ${(foodDetail.foodsDetail.price*foodDetail.quantity+foodDetail.totalMoney).toString()}",
                         color: Colors.white,
                       ),
                     ),

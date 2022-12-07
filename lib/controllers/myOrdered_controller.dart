@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'package:cdcn/data/repository/myOrdered_repo.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/detailOrdered_model.dart';
 import '../models/myOrdered_model.dart';
 import 'package:http/http.dart' as http;
 import '../models/review_model.dart';
 import '../models/user_model.dart';
+
 
 class MyOrderController extends GetxController {
   final MyOrderedRepo myOrderedRepo;
@@ -79,12 +79,12 @@ class MyOrderController extends GetxController {
       print(response.body);
       detailOrdered = DetailOrdered.fromJson(jsonDecode(response.body));
       // DateTime now = DateTime.now();
-      DateTime parseDate = new DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-          .parse(detailOrdered.orderDate, true);
-      var inputDate = DateTime.parse(parseDate.toString());
-      var outputFormat = DateFormat('dd/MM/yyyy hh:mm a');
-      var outputDate = outputFormat.format(inputDate);
-      dateOrdered = outputDate.toString();
+      // DateTime parseDate = new DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+      //     .parse(detailOrdered.orderDate, true);
+      // var inputDate = DateTime.parse(parseDate.toString());
+      // var outputFormat = DateFormat('dd/MM/yyyy hh:mm a');
+      // var outputDate = outputFormat.format(inputDate);
+      dateOrdered = "21/11/2022";
       listFood = [];
       listFood.addAll(detailOrdered.listFoods!);
       listTopping = [];

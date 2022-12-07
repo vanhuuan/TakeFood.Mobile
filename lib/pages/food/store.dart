@@ -9,8 +9,6 @@ import '../../utils/colors.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/icon_and_text_widget.dart';
-import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
-
 import '../../widgets/small_text.dart';
 
 class StorePage extends StatelessWidget {
@@ -231,7 +229,7 @@ class StorePage extends StatelessWidget {
                                             color: AppColors.mainBlackColor),
                                         SizedBox(height: ScreenUtil().setHeight(20)),
                                         BigText(
-                                          text: foodsStore.foodOfStoreList[index].price.toString().toVND(unit: 'đ'),
+                                          text: foodsStore.foodOfStoreList[index].price.toString(),
                                           color: AppColors.mainBlackColor,
                                           size: ScreenUtil().setSp(10),
                                         )

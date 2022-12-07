@@ -8,7 +8,6 @@ import 'package:cdcn/widgets/app_icon.dart';
 import 'package:cdcn/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -86,8 +85,7 @@ class MyOrderedByType extends StatelessWidget {
                             children: [
                               SmallText(
                                 text: data![index].total
-                                    .toString()
-                                    .toVND(unit: "đ"),
+                                    .toString(),
                                 color: AppColors.mainBlackColor,
                                 fontWeight: "bold",
                                 size: ScreenUtil().setSp(10),
