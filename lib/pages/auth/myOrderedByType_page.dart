@@ -1,6 +1,8 @@
 
 
+import 'package:cdcn/controllers/myOrdered_controller.dart';
 import 'package:cdcn/models/myOrdered_model.dart';
+import 'package:cdcn/routes/route_helper.dart';
 import 'package:cdcn/utils/colors.dart';
 import 'package:cdcn/widgets/app_icon.dart';
 import 'package:cdcn/widgets/small_text.dart';
@@ -8,6 +10,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class MyOrderedByType extends StatelessWidget {
   const MyOrderedByType({Key? key, required this.data, }) : super(key: key);
@@ -25,9 +28,9 @@ class MyOrderedByType extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      // Get.find<MyOrderController>().getDetailOrdered(data![index].orderId);
-                      // //Get.find<MyOrderController>().getReviewByorderId(data![index].orderId);
-                      // Get.toNamed(RouteHelper.detailOrdered);
+                      Get.find<MyOrderController>().getDetailOrdered(data![index].orderId);
+                      Get.find<MyOrderController>().getReviewByorderId(data![index].orderId);
+                      Get.toNamed(RouteHelper.detailOrdered);
                     },
                     child: Container(
                       padding: EdgeInsets.only(

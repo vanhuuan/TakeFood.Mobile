@@ -60,6 +60,7 @@ class MyOrderController extends GetxController {
 
   getReviewByorderId(orderedId) async {
     review = await myOrderedRepo.getReviewByOrderId(orderedId);
+    update();
   }
 
   Future<bool> getDetailOrdered(orderedID) async {
@@ -99,6 +100,7 @@ class MyOrderController extends GetxController {
 
   Future<bool> reviewOrder(data) async {
     bool check = await myOrderedRepo.revieworder(data);
+    update();
     return check;
   }
 }

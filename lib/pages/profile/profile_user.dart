@@ -1,4 +1,5 @@
 
+import 'package:cdcn/controllers/myOrdered_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -142,8 +143,8 @@ class ProfileUser extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: ()  {
-                      // Get.find<MyOrderController>().getListMyOrdered();
-                      // Get.toNamed(RouteHelper.myOrderPage);
+                      Get.find<MyOrderController>().getListMyOrdered();
+                      Get.toNamed(RouteHelper.myOrderPage);
                     },
                     child: AccountWidget(
                         appIcon: const AppIcon(
