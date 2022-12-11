@@ -1,17 +1,18 @@
+
+import 'package:cdcn/controllers/foodOfStore_controller.dart';
+import 'package:cdcn/routes/route_helper.dart';
+import 'package:cdcn/widgets/big_text.dart';
+import 'package:cdcn/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 import '../../controllers/foodDetail_controller.dart';
-import '../../controllers/foodOfStore_controller.dart';
-import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_icon.dart';
-import '../../widgets/big_text.dart';
 import '../../widgets/icon_and_text_widget.dart';
 import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
-
-import '../../widgets/small_text.dart';
 
 class StorePage extends StatelessWidget {
   String storeId;
@@ -51,16 +52,20 @@ class StorePage extends StatelessWidget {
                             Navigator.pop(context);
                           },
                           child: AppIcon(
-                            icon: Icons.arrow_back,
-                            size: ScreenUtil().setHeight(25),
+                              icon: Icons.arrow_back,
+                              size: ScreenUtil().setHeight(40),
+                              iconSize:ScreenUtil().setHeight(25) , backgroundColor: AppColors.mainColor
                           ),
                         ),
                         Row(
                           children: [
                             AppIcon(
-                                icon: Icons.favorite, size: ScreenUtil().setHeight(25)),
+                              icon: Icons.favorite,  size: ScreenUtil().setHeight(40),
+                              iconSize:ScreenUtil().setHeight(25) , backgroundColor: AppColors.mainColor,),
+                            SizedBox(width: ScreenUtil().setWidth(5),),
                             AppIcon(
-                                icon: Icons.search, size: ScreenUtil().setHeight(25)),
+                                icon: Icons.search,  size: ScreenUtil().setHeight(40),
+                                iconSize:ScreenUtil().setHeight(25) , backgroundColor: AppColors.mainColor),
                           ],
                         )
 
@@ -162,10 +167,16 @@ class StorePage extends StatelessWidget {
                       icon: Icons.shopping_bag,
                       text: "${foodsStore.foodsStore.numOfOrder.toString()!} đã bán",
                       iconColor: const Color(0xFFFF8357)),
-                  SmallText(
-                    text: "Xem đánh giá",
-                    color: const Color(0xFF89D5C9),
-                    size: ScreenUtil().setSp(8),
+                  GestureDetector(
+                    onTap: (){
+                      foodsStore.getAllComment(foodsStore.foodsStore.storeId);
+                      Get.toNamed(RouteHelper.reviewPage);
+                    },
+                    child: SmallText(
+                      text: "Xem đánh giá",
+                      color: const Color(0xFF89D5C9),
+                      size: ScreenUtil().setSp(8),
+                    ),
                   )
                 ],
               ),
@@ -183,8 +194,8 @@ class StorePage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () async {
-                           await Get.find<FoodDetailController>().getFoodDetailById(foodsStore.foodOfStoreList[index].foodId);
-                          // //print(foodsStore.foodOfStoreList[index].storeId.toString());
+                          await Get.find<FoodDetailController>().getFoodDetailById(foodsStore.foodOfStoreList[index].foodId);
+                          //print(foodsStore.foodOfStoreList[index].storeId.toString());
                           Get.toNamed(RouteHelper.getDetailFood(storeId));
                         },
                         child: Container(

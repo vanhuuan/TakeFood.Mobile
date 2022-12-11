@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../controllers/user_controller.dart';
 import '../../routes/route_helper.dart';
 
 class SplashSreeen extends StatefulWidget {
