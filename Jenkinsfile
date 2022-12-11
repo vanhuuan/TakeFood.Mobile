@@ -15,6 +15,7 @@ pipeline {
     environment {
         NEXUSACCOUNT = 'admin'
         NEXUSPASSWORD = '254a6d6e-9ab2-4548-8ee4-66ec037f8514'
+        NEXUSURL = 'http://20.205.40.63:8081/repository/maven-releases'
     }
 
     stages {
@@ -23,13 +24,11 @@ pipeline {
                 cleanWs()
                 setBuildStatus('Pending', 'PENDING')
                 git branch: 'main', credentialsId: 'takefoodmobile', url: 'git@github.com:vanhuuan89/TakeFood.Mobile.git'
-                sh 'cd TakeFood.Mobile'
             }
         }
         stage('Test') {
             steps {
                 sh "echo ${env:BUILD_NUMBER}"
-                sh 'cd '
                 sh 'flutter test'
             }
         }
@@ -40,7 +39,7 @@ pipeline {
         }
         stage('Publish to Nexus repository') {
             steps {
-                sh 'curl -u admin:254a6d6e-9ab2-4548-8ee4-66ec037f8514 -v --upload-file app-release.apk http://20.205.40.63:8081/repository/maven-releases/TakeFoodMobile/0.0.3/0.0.3/0.0.3-0.0.3.apk'
+                sh "curl -u ${env:NEXUSACCOUNT}:${env:NEXUSPASSWORD} -v --upload-file build/app/outputs/flutter-apk/app-release.apk ${env:NEXUSURL}/TakeFoodMobile/2.0.0/2.0.1/2.0.0-2.0.1.apk"
             }
         }
     }
